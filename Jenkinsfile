@@ -13,6 +13,8 @@ pipeline {
                 {
                     echo "Archiving..."
                     archiveArtifacts:'**/target/*.war'
+                }
+            }
         }
         stage('Test') {
             steps {
