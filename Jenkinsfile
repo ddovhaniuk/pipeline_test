@@ -4,8 +4,15 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'mvn clean package'
                 sh 'echo "Building..."'
             }
+            post
+            {
+                success
+                {
+                    echo "Archiving..."
+                    archiveArtifacts:'**/target/*.war'
         }
         stage('Test') {
             steps {
